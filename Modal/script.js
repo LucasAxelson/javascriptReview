@@ -44,6 +44,6 @@ document.addEventListener(`click`, function (e) {
 });
 
 //Close Modal - Press Esc key
-document.addEventListener(`keyup`, function (e) {
+document.addEventListener(`keydown`, function (e) {
   keyPress(e, `Escape`);
 });
