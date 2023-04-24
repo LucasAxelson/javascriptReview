@@ -131,6 +131,7 @@ main {
 
 .btn--new {
   top: 4rem;
+  z-index: 6;
 }
 .btn--roll {
   top: 39.3rem;
@@ -158,12 +159,48 @@ main {
 }
 
 .player--winner {
-  background-color: #2f2f2f;
+  width: 50%;
+  height: 50%;
+
+  z-index: 6;
+  position: absolute;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border-radius: 20px;
+
+  text-align: center;
+  line-height: 280px;
+  background-color: #f1e9f1ce;
 }
 
-.player--winner .name {
+.winner--text {
+  z-index: 9;
+  font-size: 40px;
   font-weight: 700;
   color: #c7365f;
+
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
 }
 
 .hidden {
