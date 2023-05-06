@@ -28,6 +28,47 @@ const restaurant = {
   },
 };
 
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -48,3 +89,50 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 
 GOOD LUCK 😀
 */
+
+const [players1, players2] = game.players;
+const [gk, ...fieldPlayers] = players1;
+const allPlayers = [...players1, ...players2];
+const allPlayersFinal = [
+  ...players1,
+  ...players2,
+  `Thiago`,
+  `Coutinho`,
+  `Perisic`,
+];
+const players1Final = [...players1, `Thiago`, `Coutinho`, `Perisic`];
+
+const { team1, draw, team2 } = game.odds;
+const scored = game.scored;
+
+function printGoals(players) {
+  const x = [];
+  const y = [];
+  const z = [];
+  for (let i = 0; i < players.length; i++) {
+    let number = i;
+    if (number === 0) {
+      x.push(players[i]);
+    } else if (number === 1) {
+      y.push(players[i]);
+    } else if (x.includes(players[i])) {
+      x.push(players[i]);
+    } else if (y.includes[players[i]]) {
+      y.push(players[i]);
+    } else {
+      z.push(players[i]);
+    }
+  }
+  console.log(
+    `     ${x[0]} scored ${x.length} goals!!`,
+    `
+    `,
+    `${y[0]} scored ${y.length} goals!!`,
+    `
+    `,
+    `Other players scored ${z.length} goals!!`
+  );
+}
+
+team1 > team2 && console.log(`Team 2 is more likey to win`);
+team1 < team2 && console.log(`Team 1 is more likey to win`);
