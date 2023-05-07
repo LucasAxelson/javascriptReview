@@ -1,6 +1,6 @@
 'use strict';
 
-resetGame();
+init();
 
 document.querySelector(`.btn--roll`).addEventListener(`click`, function () {
   if (!dice.classList.contains(`hidden`) && player.heldScore <= 100) {
@@ -11,31 +11,27 @@ document.querySelector(`.btn--roll`).addEventListener(`click`, function () {
 
     if (rollValue === 1) {
       score = 0;
-
-      alterRolledScore(score, score);
+      rolledScore.textContent = score;
       newPlayer();
     } else {
       score += rollValue;
-
-      alterRolledScore(score, score);
+      rolledScore.textContent = score;
     }
   }
 });
 
 document.querySelector(`.btn--hold`).addEventListener(`click`, function () {
   checkPlayer();
-  heldScore += score;
-  player.heldScore += heldScore;
+  player.heldScore += score;
   currentScore.textContent = player.heldScore;
   rolledScore.textContent = 0;
 
   checkScore();
   newPlayer();
-  resetScores();
+  score = 0;
 });
 
 document.querySelector(`.btn--new`).addEventListener(`click`, function () {
-  resetGame();
-  diceRoll();
+  init();
   dice.classList.remove(`hidden`);
 });
