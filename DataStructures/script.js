@@ -296,3 +296,25 @@ document.querySelector(`button`).addEventListener(`click`, function () {
     return console.log(element.padEnd(20, ` `) + `${`✅`.repeat(i)}`);
   });
 });
+
+/////
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting}, ${name}`);
+  };
+};
+
+const greeterHey = greet(`Hey`);
+greeterHey(`Jonas`);
+
+const heya = greeting => {
+  return name => {
+    console.log(`${greeting}, ${name}`);
+  };
+};
+
+const heyaBro = heya(`Heya`);
+const Bro1 = heyaBro(`Bro1`);
+
+const Hola = greeting => name => console.log(`${greeting}, ${name}`);
+Hola(`Yo`)(`Bro2`);
